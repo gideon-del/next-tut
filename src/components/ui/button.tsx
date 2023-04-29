@@ -3,15 +3,20 @@ import { FC } from "react";
 import styles from "./button.module.css";
 interface Props {
   children: any;
-  link: string;
+  link?: string;
+  onClick?: () => void
 }
 const Button: FC<Props> = (props) => {
-  return (
-    <Link href={props.link}>
-      {" "}
-      <a className={styles.btn}>{props.children}</a>
-    </Link>
-  );
+  if(props.link){
+    
+    return (
+      <Link href={props.link} passHref className={styles.btn}>
+     
+        {props.children}
+      </Link>
+    );
+  }
+  return <button onClick={props.onClick} className={styles.btn}> {props.children}</button>
 };
 
 export default Button;

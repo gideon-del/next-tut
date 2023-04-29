@@ -1,9 +1,9 @@
-import { EventList } from "@/types";
+import { EventList as Events } from "@/types";
 import React from "react";
 import EventItem from "./eventItem";
 import styles from "./eventList.module.css";
 interface Props {
-  items: EventList[];
+  items: Events[];
 }
 const EventList: React.FC<Props> = ({ items }) => {
   return (
