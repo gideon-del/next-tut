@@ -16,7 +16,7 @@ const Button: FC<Props> = (props) => {
       </Link>
     );
   }
-  return <button onClick={props.onClick} className={styles.btn}> {props.children}</button>
+  return <button type='submit' className={styles.btn}> {props.children}</button>
 };
 
 export default Button;

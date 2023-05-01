@@ -1,8 +1,10 @@
-import React, { LegacyRef, useRef } from "react"
+import React, { FC, useRef } from "react"
 import Button from "../ui/button"
 import styles from './eventsSearch.module.css'
-
-const EventsSearch = () => {
+interface Props {
+    onSearch : (a: string, b: string) => void
+}
+const EventsSearch: FC<Props> = (props) => {
     const yearRef = useRef<HTMLSelectElement>(null)
     const montRef = useRef<HTMLSelectElement>(null) 
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
@@ -10,6 +12,7 @@ const EventsSearch = () => {
 
        const selectedYear = yearRef.current?.value!
        const selectedMonth = montRef.current?.value!
+       props.onSearch(selectedYear,selectedMonth)
     }
     return <form className={styles.form} onSubmit={submitHandler}>
         <div className={styles.controls}>
